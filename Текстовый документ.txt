@@ -1,0 +1,13 @@
+employee-monitoring/
+├── app/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── routes.py
+│   └── templates/
+│       ├── base.html
+│       ├── home.html
+│       └── auth/
+│           ├── login.html
+│           └── register.html
+├── run.py
+└── requirements.txt

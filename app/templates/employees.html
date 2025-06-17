@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Список сотрудников</h2>
+    
+    <div class="mb-3">
+        <a href="/add-employee" class="btn btn-success">Добавить сотрудника</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ФИО</th>
+                <th>Должность</th>
+                <th>Отдел</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.full_name }}</td>
+                <td>{{ employee.position }}</td>
+                <td>{{ employee.department }}</td>
+                <td>
+                    <a href="/edit/{{ employee.id }}" class="btn btn-sm btn-warning">Редактировать</a>
+                    <a href="/delete/{{ employee.id }}" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+		<td>
+  		  <a href="/edit/{{ employee.id }}" class="btn btn-sm btn-warning me-2">
+     		   <i class="bi bi-pencil"></i> Редактировать
+  		  </a>
+ 		   <a href="/delete/{{ employee.id }}" class="btn btn-sm btn-danger">
+    		    <i class="bi bi-trash"></i> Удалить
+  		  </a>
+		</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
